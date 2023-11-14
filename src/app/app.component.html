@@ -1,12 +1,16 @@
 <div class="grid-container">
-  <div class="item1">Eliga el numero que represente (n)</div>
+  <div class="item1">Digite el numero que represente (n): <br>
+  <span> *que sea igual o menor a 20*</span>
+  </div>
     <div class="item4">
       <input [(ngModel)]="valorInput" (ngModelChange)="onInputChange()" 
-              type="number" max="10" min="0" value="1">
+              type="number" max="20" min="0" value="1">
     </div>
-  <div class="item2">serie({{valorInput}}) =</div>
-  <div class="item3">5fibonacci({{valorInput}}) - 3triangular({{valorInput}} - 1)</div> 
-  <div class="item5">2primo({{valorInput}} + 2)</div>
+  <div class="item2" *ngIf="valorInput === 0 || valorInput === null || valorInput > 20 ">serie(n) =</div>
+  <div class="item2" *ngIf="valorInput >= 1 && valorInput <=20">serie({{valorInput}}) =</div>
+  <div class="item3" *ngIf="valorInput === 0 || valorInput === null || valorInput > 20 ">5fibonacci(n) - 3triangular(n - 1)</div> 
+  <div class="item3" *ngIf="valorInput >= 1 && valorInput <=20">5fibonacci({{valorInput}}) - 3triangular({{valorInput}} - 1)</div> 
+  <div class="item6">= {{resultForN2}} </div> 
+  <div class="item5" *ngIf="valorInput === 0 || valorInput === null || valorInput > 20 ">2primo(n + 2)</div>
+  <div class="item5" *ngIf="valorInput >= 1 && valorInput <=20">2primo({{valorInput}} + 2)</div>
 </div>
-
-<h3>{{resultForN2}}</h3>
